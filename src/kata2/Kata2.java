@@ -1,6 +1,5 @@
 package kata2;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Kata2 {
@@ -8,13 +7,12 @@ public class Kata2 {
     public static void main(String[] args) {
         
         int[] data = {1,2,3,3,8,1,7,8,2,3,-11,3,1,14,3};
-        Map<Integer, Integer> histogram = new HashMap<>();
+    
+        Histogram histo = new Histogram(data);
         
-        for (int i : data) {
-            histogram.put(data[i], histogram.containsKey(data[i]) ? histogram.get(data[i])+1 : 1);
-        }
+        Map<Integer, Integer> histogr = histo.getHistogram();
         
-        for (Map.Entry<Integer, Integer> entry : histogram.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : histogr.entrySet()) {
             System.out.println(entry.getKey() + " ==> " + entry.getValue());
         }        
     }
